@@ -1,0 +1,8 @@
+.alert {
+  width: 200px;
+  padding: 8px 30px;
+  font-family: "sans-serif";
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 10px 5px;
+}
