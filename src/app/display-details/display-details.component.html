@@ -1,0 +1,5 @@
+<button (click)="onClickDisplayDetails()">Display Details</button>
+<p *ngIf="showParagraph">{{clicks.length}}</p>
+<ng-container *ngFor="let click of clicks; index as i">
+  <p [ngStyle]="i >= 5 ? {'background-color' : 'blue'} : null" [ngClass]="{white: i >= 5}">{{click}}</p>
+</ng-container>
