@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header fw-bold">
+    Add new <span style="color: red">Server</span> or <span style="color: blue">blueprints!</span>
+  </div>
+  <div class="card-body">
+    <form>
+
+    <div class="mb-4">
+      <label for="serverName" class="form-label">Server Name:</label>
+      <input type="text" class="form-control" id="serverName" name="serverName" [(ngModel)]="serverName"/>
+    </div>
+    <div class="mb-4">
+      <label for="serverContent" class="form-label">Server Content:</label>
+      <input type="text" class="form-control" id="serverContent" name="serverContent" [(ngModel)]="serverContent"/>
+    </div>
+      <input type="submit" class="btn btn-primary m-1" value="Add Server" (click)="addNewServer(0)"/>
+      <input type="submit" class="btn btn-primary m-1" value="Add Blueprint" (click)="addNewServer(1)"/>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Server} from "./server/server.component";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-course';
+  servers: Server[] = [];
+
+  onNewServerCreated(server: Server) {
+    console.log("New Item");
+    this.servers.push(server);
+  }
+
+  deleteServer(index: number) {
+    console.log("Delete: " + index);
+    this.servers.splice(index, 1);
+  }
 }
