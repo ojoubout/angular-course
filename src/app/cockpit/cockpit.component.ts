@@ -1,6 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {Server} from "../server/server.component";
-
+import Type = Server.Type;
 @Component({
   selector: 'app-cockpit',
   templateUrl: './cockpit.component.html',
@@ -8,23 +8,23 @@ import {Server} from "../server/server.component";
 })
 export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<Server>();
-
-  serverName: string;
-  serverContent: string;
-
+  serverType = Server.Type;
+  @ViewChild("serverContent", {static: true}) serverContentInput: ElementRef;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  addNewServer(type: Server.Type) {
+  addNewServer(serverName: string, serverContent: string, type: Type) {
     let server: Server = {
-      name: this.serverName,
-      content: this.serverContent,
+      name: serverName,
+      content: this.serverContentInput.nativeElement.value,
       type: type
     };
 
-    this.serverCreated.emit(server);
+    if (server.name && server.content) {
+      this.serverCreated.emit(server);
+    }
   }
 
 }

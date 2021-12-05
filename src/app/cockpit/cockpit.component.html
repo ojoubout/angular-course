@@ -7,14 +7,16 @@
 
     <div class="mb-4">
       <label for="serverName" class="form-label">Server Name:</label>
-      <input type="text" class="form-control" id="serverName" name="serverName" [(ngModel)]="serverName"/>
+      <input type="text" class="form-control" id="serverName" name="serverName" #serverName/>
     </div>
     <div class="mb-4">
       <label for="serverContent" class="form-label">Server Content:</label>
-      <input type="text" class="form-control" id="serverContent" name="serverContent" [(ngModel)]="serverContent"/>
+      <input type="text" class="form-control" id="serverContent" name="serverContent" #serverContent/>
     </div>
-      <input type="submit" class="btn btn-primary m-1" value="Add Server" (click)="addNewServer(0)"/>
-      <input type="submit" class="btn btn-primary m-1" value="Add Blueprint" (click)="addNewServer(1)"/>
+      <input type="submit" class="btn btn-primary m-1" value="Add Server"
+             (click)="addNewServer(serverName.value, serverContent.value, serverType.SERVER)"/>
+      <input type="submit" class="btn btn-primary m-1" value="Add Blueprint"
+             (click)="addNewServer(serverName.value, serverContent.value, serverType.BLUEPRINT)"/>
     </form>
   </div>
 </div>
