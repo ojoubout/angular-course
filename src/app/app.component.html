@@ -2,6 +2,11 @@
 
   <app-cockpit (serverCreated)="onNewServerCreated($event)"></app-cockpit>
   <hr>
-  <app-server *ngFor="let server of servers; index as i" [server]="server"
-              (deleteServer)="deleteServer(i)"></app-server>
+  <app-server *ngFor="let server of servers; index as i"
+              (deleteServer)="deleteServer(i)" [server]="server">
+    <span [ngStyle]="server.type == ServerType.SERVER ? {'color': 'red', 'font-weight': 'bold'} : {'color': 'blue', 'font-style': 'italic'}">
+      {{server.content}}
+    </span>
+
+  </app-server>
 </div>

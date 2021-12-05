@@ -3,9 +3,7 @@
     {{server.name}}
   </div>
   <div class="card-body">
-    <span [ngStyle]="server.type == serverType.SERVER ? {'color': 'red', 'font-weight': 'bold'} : {'color': 'blue', 'font-style': 'italic'}">
-      {{server.content}}
-    </span>
+    <ng-content></ng-content>
   </div>
   <div class="card-footer">
     <button class="btn btn-danger" (click)="deleteServer.emit()">Delete</button>

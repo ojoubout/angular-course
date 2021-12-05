@@ -8,7 +8,7 @@ import {Server} from "./server/server.component";
 })
 export class AppComponent {
   servers: Server[] = [];
-
+  ServerType = Server.Type;
   onNewServerCreated(server: Server) {
     console.log("New Item");
     this.servers.push(server);

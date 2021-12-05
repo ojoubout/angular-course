@@ -25,8 +25,6 @@ export class ServerComponent implements OnInit {
   @Input() server: Server;
   @Output() deleteServer: EventEmitter<void> = new EventEmitter<void>();
 
-  serverType = Server.Type;
-
   constructor(){
   }
 
