@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-course';
+  numbers: number[] = [];
+
+  addNumber() {
+      this.numbers.push(this.numbers.length);
+  }
+
+  isOdd(number: number) {
+    return (number % 2) == 1;
+  }
+
+  isEven(number: number) {
+    return (number % 2) == 0;
+  }
 }

@@ -1,1 +1,6 @@
+<app-game-control (onSecondTick)="addNumber()"></app-game-control>
 
+<ng-container *ngFor="let n of numbers">
+<app-odd *ngIf="isOdd(n)">{{n}}</app-odd>
+<app-even *ngIf="isEven(n)">{{n}}</app-even>
+</ng-container>
