@@ -20,7 +20,7 @@ export class ShoppingListEditComponent implements OnInit {
 
     let name = this.nameInput.nativeElement.value;
     let amount = this.amountInput.nativeElement.valueAsNumber;
-    if (name && amount) {
+    if (name && amount > 0) {
       this.onAddIngredient.emit(new Ingredient(name, amount));
       this.nameInput.nativeElement.value = "";
       this.amountInput.nativeElement.value = "";

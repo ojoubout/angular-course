@@ -4,7 +4,6 @@
     <hr>
   </div>
   <div class="col-xs-12">
-    <app-recipe-item *ngFor="let recipe of recipes;" [recipe]="recipe"
-      (onRecipeSelected)="onRecipeSelected.emit(recipe)"></app-recipe-item>
+    <app-recipe-item *ngFor="let recipe of recipeService.recipes;" [recipe]="recipe"></app-recipe-item>
   </div>
 </div>

@@ -1,28 +1,28 @@
 <div class="row">
   <div class="col-xs-12">
-    <img [src]="recipe.imagePath" alt="" class="img-responsive" style="max-height: 300px;">
+    <img [src]="recipeService.selectedRecipe.imagePath" alt="" class="img-responsive" style="max-height: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 mt-2">
+    <h1>{{recipeService.selectedRecipe.name}}</h1>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{recipe.name}}</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <div class="btn-group">
-      <button type="button" class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Manage Recipe <span class="caret"></span></button>
       <ul class="dropdown-menu">
-        <li><a href="#">Add to Shopping List</a></li>
-        <li><a href="#">Edit Recipe</a></li>
-        <li><a href="#">Delete Recipe</a></li>
+        <li><a class="dropdown-item nav-link" href="#">Add to Shopping List</a></li>
+        <li><a class="dropdown-item nav-link" href="#">Edit Recipe</a></li>
+        <li><a class="dropdown-item nav-link" href="#">Delete Recipe</a></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    {{recipe.description}}
+    {{recipeService.selectedRecipe.description}}
   </div>
 </div>
 <div class="row">
