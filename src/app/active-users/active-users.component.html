@@ -8,10 +8,10 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item" *ngFor="let user of usersService.getActiveUsers()">
           {{user.userName}}
-          <a href="#" (click)="user.active = !user.active" >
-        <span class="badge rounded-pill" [ngClass]="user.active ? 'bg-success' : 'bg-danger'">
-          {{user.active ? 'Active' : 'Inactive'}}
-        </span>
+          <a href="#" (click)="user.active = false" >
+            <span class="badge rounded-pill" [ngClass]="user.active ? 'bg-success' : 'bg-danger'">
+              {{user.active ? 'Active' : 'Inactive'}}
+            </span>
           </a>
         </li>
       </ul>
