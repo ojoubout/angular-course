@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Inactive Users
+    </div>
+    <div class="card-body">
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let user of usersService.getInactiveUsers()">
+          {{user.userName}}
+          <a href="#" (click)="user.active = !user.active" >
+        <span class="badge rounded-pill" [ngClass]="user.active ? 'bg-success' : 'bg-danger'">
+          {{user.active ? 'Active' : 'Inactive'}}
+        </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
