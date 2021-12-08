@@ -1,0 +1,3 @@
+<div *ngFor="let user of usersService.users">
+  {{user.userName}} <span class="badge" [ngClass]="user.active ? 'bg-success' : 'bg-danger'">{{user.active ? 'Active' : 'Inactive'}}</span>
+</div>
