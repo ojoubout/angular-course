@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-xs-10">
-    <app-shopping-list-edit (onAddIngredient)="ingredients.push($event)"></app-shopping-list-edit>
+    <app-shopping-list-edit></app-shopping-list-edit>
     <hr>
     <ul class="list-group">
-      <a
-        class="list-group-item" style="cursor: pointer"
-        *ngFor="let ingredient of ingredients">
-        {{ingredient.name}} ({{ ingredient.amount }})
-      </a>
+      <li class="list-group-item my-0" *ngFor="let ingredient of shoppingListService.ingredients; index as i">
+        <app-shopping-list-item [isEdit]="ingredient == editIngredient" [ingredient]="ingredient"
+                                (onDeleteIngredient)="shoppingListService.removeIngredient(i)"
+                                (onEditIngredient)="editIngredient = $event"></app-shopping-list-item>
+      </li>
     </ul>
   </div>
 </div>

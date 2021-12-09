@@ -1,0 +1,34 @@
+<div class="row ">
+
+  <div class="col ps-2 p-1" *ngIf="!isEdit; else showEdit">
+    {{ingredient.name}} ({{ingredient.amount}})
+  </div>
+  <ng-template #showEdit>
+    <div class="col-auto" >
+      <input type="text" class="form-control" placeholder="Name" value="{{ingredient.name}}" #editNameInput>
+    </div>
+    <div class="col-auto" >
+      <input type="number" class="form-control" min="1" placeholder="Amount" value="{{ingredient.amount}}" #editAmountInput>
+    </div>
+  </ng-template>
+  <div class="btn-group col-auto ms-auto p-0">
+
+    <a *ngIf="!isEdit; else editToolbox" class="d-flex" href="#">
+      <h5 class="bi bi-pencil-fill link-primary my-auto me-4" ngbTooltip="Edit" (click)="editIngredient()"></h5>
+    </a>
+    <ng-template #editToolbox>
+      <a class="d-flex" href="#">
+        <h5 class="bi bi-save-fill link-success my-auto me-4" ngbTooltip="Save" (click)="saveEdit()"></h5>
+      </a>
+      <a class="d-flex" href="#">
+        <h5 class="bi bi-x-circle-fill link-warning my-auto me-4" ngbTooltip="Cancel" (click)="cancelEdit()"></h5>
+      </a>
+    </ng-template>
+
+    <a class="d-flex"  href="#">
+      <h5 class="bi bi-trash-fill link-danger my-auto me-2"
+          ngbTooltip="Delete"
+          (click)="onDeleteIngredient.emit()"></h5>
+    </a>
+  </div>
+</div>
