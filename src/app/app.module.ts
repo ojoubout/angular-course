@@ -12,6 +12,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import {FormsModule} from "@angular/forms";
 import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/shopping-list-item.component';
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {AppRoutingModule} from "./app-routing/app-routing.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
   imports: [
     BrowserModule,
     FormsModule,
-    NgbTooltipModule
+    NgbTooltipModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

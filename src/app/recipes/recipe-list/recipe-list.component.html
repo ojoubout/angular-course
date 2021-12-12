@@ -4,6 +4,6 @@
     <hr>
   </div>
   <div class="col-xs-12">
-    <app-recipe-item *ngFor="let recipe of recipeService.recipes;" [recipe]="recipe"></app-recipe-item>
+    <app-recipe-item *ngFor="let recipe of recipeService.recipes; index as i" [routerLink]="[i]"></app-recipe-item>
   </div>
 </div>
