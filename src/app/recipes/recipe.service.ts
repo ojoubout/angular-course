@@ -6,12 +6,11 @@ import {Ingredient} from "../shared/ingredient.model";
   providedIn: 'root'
 })
 export class RecipeService {
-  // private static _id = ;
   recipes: Recipe[] = [
     new Recipe(
       'A Test Recipe 1',
       'This simply a test 1',
-      'https://media.discordapp.net/attachments/897505567642386483/910855883964178483/IMG-20211118-WA0013.jpg',
+      'https://www.vibesofindia.com/wp-content/uploads/2021/12/pizza.jpg',
       [new Ingredient('Chicken Legs', 3), new Ingredient('Carrot', 1)]),
     new Recipe(
       'A Test Recipe 2',
@@ -19,6 +18,5 @@ export class RecipeService {
       'https://media.discordapp.net/attachments/897505567642386483/910855883964178483/IMG-20211118-WA0013.jpg',
       [new Ingredient('Potatoe', 1), new Ingredient('Apple', 2)])
   ];
-  // selectedRecipe: Recipe;
   constructor() {}
 }

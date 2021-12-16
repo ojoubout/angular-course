@@ -3,7 +3,12 @@
     <button class="btn btn-success">New Recipe</button>
     <hr>
   </div>
-  <div class="col-xs-12">
-    <app-recipe-item *ngFor="let recipe of recipeService.recipes; index as i" [routerLink]="[i]"></app-recipe-item>
+  <div class="col-xs-12 list-group">
+    <app-recipe-item
+      *ngFor="let recipe of recipeService.recipes; index as i"
+      [routerLink]="['/recipe', i]"
+      [recipe]="recipe"
+      role="button"
+    ></app-recipe-item>
   </div>
 </div>

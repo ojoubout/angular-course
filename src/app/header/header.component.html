@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
   <div class="container-fluid">
-    <a href="#" class="navbar-brand">Recipe Book</a>
+    <a routerLink="/" class="navbar-brand">Recipe Book</a>
 <!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
 <!--      <span class="navbar-toggler-icon"></span>-->
 <!--    </button>-->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0">
+      <ul class="nav navbar-nav mb-2 mb-lg-0 me-auto">
         <li><a class="nav-link" routerLink="recipe" routerLinkActive="active">Recipes</a></li>
         <li><a class="nav-link" routerLink="shopping" routerLinkActive="active">Shopping List</a></li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">Manage <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item nav-link" href="#">Save Data</a></li>
-            <li><a class="dropdown-item nav-link" href="#">Fetch Data</a></li>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">Manage <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item nav-link" role="button">Save Data</a></li>
+            <li><a class="dropdown-item nav-link" role="button">Fetch Data</a></li>
           </ul>
         </li>
       </ul>
