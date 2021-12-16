@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <div class="m-auto w-50">
+    <div class="mb-3">
+      <label class="form-label" for="emailInput">Email:</label>
+      <input type="email" email required class="form-control" [ngClass]="emailInput.valid ? 'is-valid' : emailInput.touched ? 'is-invalid' : ''"
+             id="emailInput" name="email" ngModel #emailInput='ngModel'>
+      <div class="invalid-feedback">Email not valid!</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="emailInput">Password:</label>
+      <input type="password" minlength="8" maxlength="24" required class="form-control" [ngClass]="passwordInput.valid ? 'is-valid' : emailInput.touched ? 'is-invalid' : ''"
+             id="passwordInput" name="password" ngModel #passwordInput='ngModel'>
+      <div class="invalid-feedback">Password should be between 8-24 characters!</div>
+    </div>
+    <label for="subSelect">Subscriptions:</label>
+    <select class="form-select mb-3" required id="subSelect" name="subscription" ngModel>
+      <option *ngFor="let s of subscriptions; index as i" [value]="i">{{s}}</option>
+    </select>
+    <div class="invalid-feedback">This field is required!</div>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </div>
+</form>
