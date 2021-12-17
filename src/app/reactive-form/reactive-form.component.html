@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Projwct Form</title>
+</head>
+<body>
+  <form class="w-50 mx-auto" (ngSubmit)="onSubmit()" [formGroup]="projectForm">
+    <div class="mb-3">
+      <label class="form-label" for="projectName">Project Name:</label>
+      <input type="text" class="form-control" [ngClass]="isValid(projectName)" id="projectName" formControlName="projectName">
+      <div class="invalid-feedback">
+        <p *ngIf="projectName.errors?.required">this field is required</p>
+        <p *ngIf="projectName.errors?.minlength">minimum length is 6</p>
+        <p *ngIf="projectName.errors?.forbiddenName">forbidden name</p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="email">Email:</label>
+      <input type="text" class="form-control" [ngClass]="isValid(email)" id="email" formControlName="email">
+      <div class="invalid-feedback">
+        <p *ngIf="email.errors?.required">this field is required</p>
+        <p *ngIf="email.errors?.email">should use a valid email</p>
+        <p *ngIf="email.errors?.emailExists">email already exists</p>
+      </div>
+
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="projectName">Status:</label>
+      <select class="form-select mb-3" formControlName="status">
+        <option *ngFor="let status of statuses" [ngValue]="status">{{status}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</body>
+</html>
