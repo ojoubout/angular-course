@@ -10,13 +10,14 @@ export class ReactiveFormComponent implements OnInit {
   public projectForm: FormGroup;
   public statuses: string[] = ['Stable', 'Critical', 'Finished'];
   public forbiddenNames: string[] = ['Test'];
+  private isSubmitted = false;
   constructor() {
   }
   ngOnInit() {
     this.projectForm = new FormGroup({
       projectName: new FormControl(null, [Validators.required, Validators.minLength(3), this.forbiddenValidator.bind(this)]),
       email: new FormControl(null, [Validators.required, Validators.email], this.emailAlreadyExists),
-      status: new FormControl(null)
+      status: new FormControl(this.statuses[0])
     });
   }
 
@@ -29,6 +30,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isSubmitted = true;
     console.log(this.projectForm);
   }
 
@@ -41,16 +43,18 @@ export class ReactiveFormComponent implements OnInit {
 
   emailAlreadyExists(formControl: FormControl) {
     return new Promise((resolve) => {
-      if (formControl.value == 'a@b') {
-        resolve({emailExists: true});
-      } else {
-        resolve(null);
-      }
+      setTimeout(() => {
+        if (formControl.value == 'a@b') {
+          resolve({emailExists: true});
+        } else {
+          resolve(null);
+        }
+      }, 2000)
     });
   }
 
   isValid(elem: AbstractControl) {
-    if (elem.touched) {
+    if (elem.touched || this.isSubmitted) {
       if (elem.valid)
         return 'is-valid';
       else
