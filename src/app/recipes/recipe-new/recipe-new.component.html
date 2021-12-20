@@ -1,0 +1,23 @@
+<form>
+  <label class="form-label" for="recipeName">Recipe Name:</label>
+  <input type="text" id="recipeName" class="form-control mb-3">
+  <label class="form-label" for="description">Description:</label>
+  <textarea id="description" class="form-control mb-3"></textarea>
+  <label class="form-label" for="ingredientName">Add Ingredient:</label>
+  <form class="row" (ngSubmit)="addIngredient()">
+    <div class="col-6">
+      <input type="text" id="ingredientName" class="form-control" placeholder="Name">
+    </div>
+    <div class="col-3">
+      <input type="number" class="form-control" placeholder="Amount">
+    </div>
+    <div class="col-3">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </form>
+  <hr>
+  <div class="list-group">
+    <div class="list-group-item" *ngFor="let ing of ingredients">{{ing.name}} ({{ing.amount}})</div>
+  </div>
+
+</form>

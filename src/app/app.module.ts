@@ -14,6 +14,8 @@ import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/sh
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {AppRoutingModule} from "./app-routing.module";
 import {NoRecipeComponent} from "./recipes/recipe-detail/no-recipe.component";
+import { RecipeNewComponent } from './recipes/recipe-new/recipe-new.component';
+import {NotFoundComponent} from "./not-found.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {NoRecipeComponent} from "./recipes/recipe-detail/no-recipe.component";
     HeaderComponent,
     RecipesComponent,
     ShoppingListItemComponent,
-    NoRecipeComponent
+    NoRecipeComponent,
+    RecipeNewComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
