@@ -1,23 +1,31 @@
-<form>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
   <label class="form-label" for="recipeName">Recipe Name:</label>
-  <input type="text" id="recipeName" class="form-control mb-3">
+  <input type="text" id="recipeName" class="form-control mb-3" formControlName="name">
   <label class="form-label" for="description">Description:</label>
-  <textarea id="description" class="form-control mb-3"></textarea>
+  <textarea id="description" class="form-control mb-3" rows="10" formControlName="description"></textarea>
+  <label class="form-label">Image URL:</label>
+  <input class="form-control mb-3" formControlName="imageUrl">
   <label class="form-label" for="ingredientName">Add Ingredient:</label>
-  <form class="row" (ngSubmit)="addIngredient()">
+  <form class="row mb-4" (ngSubmit)="addIngredient()" formGroupName="ingredient">
     <div class="col-6">
-      <input type="text" id="ingredientName" class="form-control" placeholder="Name">
+      <input type="text" formControlName="name" id="ingredientName" class="form-control" placeholder="Name">
     </div>
     <div class="col-3">
-      <input type="number" class="form-control" placeholder="Amount">
+      <input type="number" formControlName="amount" class="form-control" placeholder="Amount">
     </div>
     <div class="col-3">
       <button type="submit" class="btn btn-primary">Add</button>
     </div>
   </form>
+  <button type="submit" class="btn btn-success px-3">Submit</button>
   <hr>
   <div class="list-group">
-    <div class="list-group-item" *ngFor="let ing of ingredients">{{ing.name}} ({{ing.amount}})</div>
+    <div class="list-group-item" *ngFor="let ing of ingredientsArr; index as i">
+      <div class="row align-content-center">
+        <p class="m-0 col">{{ing.name}} ({{ing.amount}})</p>
+        <h5 class="bi bi-trash-fill link-danger col-1 m-0 ms-auto" (click)="deleteIngredient(i)"></h5>
+      </div>
+    </div>
   </div>
 
 </form>

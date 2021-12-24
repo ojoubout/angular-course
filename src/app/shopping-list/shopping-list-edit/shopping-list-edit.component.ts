@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Ingredient} from "../../shared/ingredient.model";
 import {ShoppingListService} from "../shopping-list.service";
-import {NgForm} from "@angular/forms";
+import {FormControl, NgForm} from "@angular/forms";
 import {ValidatorService} from "../../shared/validator.service";
 
 @Component({
@@ -21,11 +21,11 @@ export class ShoppingListEditComponent implements OnInit {
   }
 
   get name() {
-    return this.form?.controls?.name;
+    return this.form?.controls?.name as FormControl;
   }
 
   get amount() {
-    return this.form?.controls?.amount;
+    return this.form?.controls?.amount as FormControl;
   }
 
   addIngredient() {
@@ -39,14 +39,6 @@ export class ShoppingListEditComponent implements OnInit {
       this.form.reset({amount: 1});
       // this.nameInput.nativeElement.value = "";
       // this.amountInput.nativeElement.value = "1";
-    }
-  }
-
-  checkMaxAmount() {
-    if (this.amount.value < 1) {
-      this.amount.setValue(1);
-    } else if (this.amount.value > 9999) {
-      this.amount.setValue(9999);
     }
   }
 

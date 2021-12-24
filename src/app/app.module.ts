@@ -9,7 +9,7 @@ import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/shopping-list-item.component';
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {AppRoutingModule} from "./app-routing.module";
@@ -36,7 +36,8 @@ import {NotFoundComponent} from "./not-found.component";
     BrowserModule,
     FormsModule,
     NgbTooltipModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

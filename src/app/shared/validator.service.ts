@@ -17,4 +17,12 @@ export class ValidatorService {
     }
   }
 
+  checkMaxAmount(amount: AbstractControl) {
+    if (amount.value < 1) {
+      amount.setValue(1);
+    } else if (amount.value > 9999) {
+      amount.setValue(9999);
+    }
+  }
+
 }
