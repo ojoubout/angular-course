@@ -1,8 +1,7 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import {AppConfig} from "../../app.config";
 import {Post} from "../post.module";
+import {PostsService} from "../posts.service";
 
 @Component({
   selector: 'app-post-form',
@@ -15,13 +14,18 @@ export class PostFormComponent implements OnInit {
   @ViewChild('title') title: FormControl;
   @ViewChild('content') content: FormControl;
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
   }
 
 
   onSubmit() {
-    console.log(this.form);
+    let title: string = this.form.controls.title.value;
+    let content: string = this.form.controls.content.value;
+    let post: Post = {title: title, content: content};
+
+    this.postsService.createPost(post);
+    console.log(post);
   }
 }

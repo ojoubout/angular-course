@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Post} from "./post.module";
-import {AppConfig} from "../app.config";
-import {HttpClient} from "@angular/common/http";
+import {PostsService} from "./posts.service";
 
 @Component({
   selector: 'app-post',
@@ -12,21 +11,26 @@ export class PostComponent implements OnInit {
   posts: Post[] = [];
   isFetching: boolean = false;
 
-  constructor(public http: HttpClient) {}
+  constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
+    this.fetchPosts();
   }
 
   onFetchPosts() {
-    this.isFetching = true;
-    this.http.get<Post[]>(AppConfig.API_ENDPOINT + 'posts')
-      .subscribe((posts) => {
-        this.isFetching = false;
-        this.posts = posts;
-      });
+    this.fetchPosts();
   }
 
   onClearPosts() {
     this.posts = [];
+  }
+
+  fetchPosts() {
+    this.isFetching = true;
+    this.postsService.getPosts().subscribe(posts => {
+      this.isFetching = false;
+      this.posts = posts;
+    })
+
   }
 }
