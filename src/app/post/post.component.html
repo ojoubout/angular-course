@@ -1,0 +1,15 @@
+<div class="container w-50 my-4">
+  <app-post-form></app-post-form>
+  <hr class="my-3">
+  <button class="btn btn-info col-2 me-2" (click)="onFetchPosts()">Fetch Posts</button>
+  <button class="btn btn-warning col-2" (click)="onClearPosts()">Clear Posts</button>
+  <hr>
+  <div *ngIf="isFetching == false">
+    <app-post-item *ngFor="let post of posts" [post]="post"></app-post-item>
+  </div>
+  <div *ngIf="isFetching" class="row">
+    <div  class="spinner-border text-primary m-auto" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <label for="titleInput" class="form-label ps-0 fw-bold">Title:</label>
+  <input type="text" id="titleInput" class="form-control mb-3" name="title" ngModel="" #title>
+  <label for="contentInput" class="form-label ps-0 fw-bold">Content:</label>
+  <textarea id="contentInput" class="form-control mb-3" cols="30" rows="10" name="content" ngModel="" #content></textarea>
+  <input type="submit" class="btn btn-primary col-2" value="Send Post">
+</form>
